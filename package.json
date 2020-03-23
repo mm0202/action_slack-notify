@@ -10,7 +10,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "tslint 'src/**/*.ts{,x}'",
-    "pack": "tsc && ncc build"
+    "pack": "tsc && ncc build",
+    "all": "npm run lint && npm test && npm run pack"
   },
   "repository": {
     "type": "git",
