@@ -9684,11 +9684,11 @@ class Main {
             attachments.push(new DefaultAttachment_1.default(this.status));
             return attachments;
         }
-        if (this.style === "variable-check") {
+        if (this.style === "variables-check") {
             attachments.push(new VariablesCheckAttachment_1.default(this.status));
             return attachments;
         }
-        throw new Error(`set one of default or variable-check for style].`);
+        throw new Error(`set one of default or variables-check for style].`);
     }
 }
 exports.default = Main;
