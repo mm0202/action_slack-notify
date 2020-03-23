@@ -1,0 +1,29 @@
+name: slack notify
+description: 'notify to slack'
+inputs:
+  style:
+    description: 'set one of default or variables-check'
+    required: true
+    default: 'default'
+  payload:
+    description: 'custom payload'
+    required: true
+    default: '{}'
+  customPayloadMode:
+    description: 'set one of merge or overwrite'
+    required: true
+    default: 'merge'
+  customAttachmentMode:
+    description: 'set one of append, prepend or overwrite'
+    required: true
+    default: 'append'
+  status:
+    description: 'status'
+    required: true
+    default: ${{ job.status }}
+outputs:
+  result:
+    description: 'notification result.'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

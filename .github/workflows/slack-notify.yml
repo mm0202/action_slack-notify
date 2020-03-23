@@ -1,0 +1,105 @@
+name: slack notify
+
+on: [push]
+
+jobs:
+  slack_notify:
+    runs-on: ubuntu-latest
+    name: slack notify
+    steps:
+    - name: check / default style
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check/default"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / variables-check style
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check/variables-check"
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / merge payload / append attachments
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check / merge payload / append attachments",
+            "text": "check / merge payload / append attachments",
+            "attachments": [{"title": "test title", "value": "test value"}]
+          }
+        customPayloadMode: "merge"
+        customAttachmentMode: "append"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / merge payload / prepend attachments
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check / merge payload / prepend attachments",
+            "text": "check / merge payload / prepend attachments",
+            "attachments": [{"title": "test title", "value": "test value"}]
+          }
+        customPayloadMode: "merge"
+        customAttachmentMode: "prepend"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / merge payload / overwrite attachments
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check / merge payload / overwrite attachments",
+            "text": "check / merge payload / overwrite attachments",
+            "attachments": [{"title": "test title", "value": "test value"}]
+          }
+        customPayloadMode: "merge"
+        customAttachmentMode: "overwrite"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / overwrite payload / append attachments
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check / overwrite payload / append attachments",
+            "text": "check / overwrite payload / append attachments",
+            "attachments": [{"title": "test title", "value": "test value"}]
+          }
+        customPayloadMode: "overwrite"
+        customAttachmentMode: "append"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / overwrite payload / prepend attachments
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check / overwrite payload / prepend attachments",
+            "text": "check / overwrite payload / prepend attachments",
+            "attachments": [{"title": "test title", "value": "test value"}]
+          }
+        customPayloadMode: "overwrite"
+        customAttachmentMode: "prepend"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    - name: check / overwrite payload / overwrite attachments
+      uses: mm0202/action_slack-notify@master
+      with:
+        payload: |
+          {
+            "username": "check / overwrite payload / overwrite attachments",
+            "text": "check / overwrite payload / overwrite attachments",
+            "attachments": [{"title": "test title", "value": "test value"}]
+          }
+        customPayloadMode: "overwrite"
+        customAttachmentMode: "overwrite"
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
