@@ -77,12 +77,12 @@ export default class Main {
             return attachments;
         }
 
-        if (this.style === "variable-check") {
+        if (this.style === "variables-check") {
             attachments.push(new VariablesCheckAttachment(this.status));
             return attachments;
         }
 
-        throw new Error(`set one of default or variable-check for style].`)
+        throw new Error(`set one of default or variables-check for style].`)
     }
 }
 
