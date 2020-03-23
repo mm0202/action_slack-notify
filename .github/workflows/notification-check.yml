@@ -1,4 +1,4 @@
-name: slack notify
+name: notification-check
 
 on: [push]
 
