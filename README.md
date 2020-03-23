@@ -8,6 +8,7 @@
 ### Default Style
 ```yml
 - uses: mm0202/action_slack-notify@master
+  if: always()
   env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
@@ -18,6 +19,7 @@
 ### Variables Check Style
 ```yml
 - uses: mm0202/action_slack-notify@master
+  if: always()
   with:
     style: "variables-check"
   env:
@@ -28,6 +30,7 @@
 ### Custom Payload / merge payload & prepend attachments
 ```yml
 - uses: mm0202/action_slack-notify@master
+  if: always()
   with:
     payload: |
       {
@@ -55,6 +58,7 @@
 ### Custom Payload / overwrite payload
 ```yml
 - uses: mm0202/action_slack-notify@master
+  if: always()
   with:
     payload: |
       {
