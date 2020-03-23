@@ -10,6 +10,7 @@ jobs:
     - name: check / default style
       uses: mm0202/action_slack-notify@master
       with:
+        style: "default"
         payload: |
           {
             "username": "check/default"
@@ -19,10 +20,12 @@ jobs:
     - name: check / variables-check style
       uses: mm0202/action_slack-notify@master
       with:
+        style: "variables-check"
         payload: |
           {
             "username": "check/variables-check"
           }
+
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     - name: check / merge payload / append attachments
